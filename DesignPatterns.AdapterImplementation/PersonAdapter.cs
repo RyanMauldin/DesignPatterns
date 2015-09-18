@@ -12,7 +12,7 @@ namespace DesignPatterns.AdapterImplementation
                 FirstName = customer.FirstName,
                 MiddleName = customer.MiddleName,
                 LastName = customer.LastName,
-                CreateOn = customer.CreateOn,
+                CreatedOn = customer.CreatedOn,
                 Email = customer.Email,
                 LastModifiedOn = customer.LastModifiedOn
             };
