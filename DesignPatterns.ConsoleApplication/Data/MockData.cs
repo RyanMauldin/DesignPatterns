@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using DesignPatterns.Models;
 
-namespace DesignPatterns.ConsoleApplication
+namespace DesignPatterns.ConsoleApplication.Data
 {
-    public static class MochData
+    public static class MockData
     {
         public static List<Customer> Customers = new List<Customer>
         {
