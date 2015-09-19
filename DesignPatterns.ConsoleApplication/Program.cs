@@ -12,15 +12,22 @@ namespace DesignPatterns.ConsoleApplication
             var container = UnityConfig.GetConfiguredContainer();
             var builder = new StringBuilder();
 
-            // Adapter Example
-            var adapterExample = container.Resolve<IDesignPatternExample>("AdapterExample");
-            adapterExample.GetHeader(builder);
-            adapterExample.Run(builder);
+            // Person Adapter Example
+            var personAdapterExample = container.Resolve<IDesignPatternExample>("PersonAdapterExample");;
+            personAdapterExample.Run(builder);
+
+            builder.AppendLine();
+
+            // Person Enumerable Adapter Example
+            var personEnumerableAdapterExample = container.Resolve<IDesignPatternExample>("PersonEnumerableAdapterExample");
+            personEnumerableAdapterExample.Run(builder);
+
+            builder.AppendLine();
 
             // Show output from examples...
             Console.WriteLine(builder.ToString());
 
-            Console.WriteLine("\nPress any key to exit the application...");
+            Console.Write("Press any key to exit the application: ");
             Console.ReadKey(true);
         }
     }

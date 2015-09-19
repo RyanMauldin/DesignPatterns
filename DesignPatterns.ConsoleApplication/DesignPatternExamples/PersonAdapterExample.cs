@@ -1,12 +1,13 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 using DesignPatterns.ConsoleApplication.Data;
-using DesignPatterns.ConsoleApplication.Interfaces;
 using DesignPatterns.Interfaces;
 using DesignPatterns.Models.Interfaces;
+using Newtonsoft.Json;
 
 namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
 {
-    public class PersonAdapterExample : IDesignPatternExample
+    public class PersonAdapterExample : DesignPatternExample
     {
         private readonly IAdapter<ICustomer, IPerson> _personAdapter;
 
@@ -16,19 +17,17 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
             _personAdapter = personAdapter;
         }
 
-        public void GetHeader(StringBuilder builder)
+        public override void Run(StringBuilder builder)
         {
-            builder.AppendLine("Adapter pattern results: \n");
-        }
+            base.Run(builder);
 
-        public void Run(StringBuilder builder)
-        {
-            foreach (var customer in MockData.Customers)
-            {
-                var person = _personAdapter.Adapt(customer);
-                builder.AppendFormat("[ FirstName = {0}, MiddleName = {1}, LastName = {2}, Email = {3} ]\n",
-                    person.FirstName, person.MiddleName, person.LastName, person.Email);
-            }
+            var persons = MockData.Customers.
+                Select(p => _personAdapter.Adapt(p)).
+                ToList();
+
+            builder.AppendLine(
+                JsonConvert.SerializeObject(
+                    persons, Formatting.Indented));
         }
     }
 }

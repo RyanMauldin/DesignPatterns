@@ -7,8 +7,12 @@ namespace DesignPatterns.AdapterImplementation
     {
         public override IPerson Adapt(ICustomer customer)
         {
+            if (customer == null)
+                return null;
+
             return new Person
             {
+                Id = customer.Id,
                 FirstName = customer.FirstName,
                 MiddleName = customer.MiddleName,
                 LastName = customer.LastName,

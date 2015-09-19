@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DesignPatterns.AdapterImplementation;
 using DesignPatterns.ConsoleApplication.DesignPatternExamples;
 using DesignPatterns.ConsoleApplication.Interfaces;
@@ -36,8 +37,11 @@ namespace DesignPatterns.ConsoleApplication
         public static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType(typeof(IAdapter<ICustomer, IPerson>), typeof(PersonAdapter));
+            container.RegisterType(typeof(IAdapter<IEnumerable<ICustomer>, IEnumerable<IPerson>>), typeof(PersonEnumerableAdapter));
             container.RegisterType(typeof(IDesignPatternExample), typeof(PersonAdapterExample),
-                "AdapterExample");
+                "PersonAdapterExample");
+            container.RegisterType(typeof(IDesignPatternExample), typeof(PersonEnumerableAdapterExample),
+                "PersonEnumerableAdapterExample");
         }
     }
 }
