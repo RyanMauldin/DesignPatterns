@@ -9,25 +9,21 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
 {
     public class PersonAdapterExample : DesignPatternExample
     {
-        private readonly IAdapter<ICustomer, IPerson> _personAdapter;
+        private readonly IAdapter<ICustomer, IPerson> _adapter;
 
         public PersonAdapterExample(
-            IAdapter<ICustomer, IPerson> personAdapter)
+            IAdapter<ICustomer, IPerson> adapter)
         {
-            _personAdapter = personAdapter;
+            _adapter = adapter;
         }
 
         public override void Run(StringBuilder builder)
         {
             base.Run(builder);
-
-            var persons = MockData.Customers.
-                Select(p => _personAdapter.Adapt(p)).
-                ToList();
-
             builder.AppendLine(
                 JsonConvert.SerializeObject(
-                    persons, Formatting.Indented));
+                    MockData.Customers.Select(p => _adapter.Adapt(p)),
+                    Formatting.Indented));
         }
     }
 }

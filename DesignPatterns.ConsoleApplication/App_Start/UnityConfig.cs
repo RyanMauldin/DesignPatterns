@@ -36,12 +36,21 @@ namespace DesignPatterns.ConsoleApplication
         /// change the defaults), as Unity allows resolving a concrete type even if it was not previously registered.</remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
+            // Person Adapter Examples
             container.RegisterType(typeof(IAdapter<ICustomer, IPerson>), typeof(PersonAdapter));
             container.RegisterType(typeof(IAdapter<IEnumerable<ICustomer>, IEnumerable<IPerson>>), typeof(PersonEnumerableAdapter));
             container.RegisterType(typeof(IDesignPatternExample), typeof(PersonAdapterExample),
                 "PersonAdapterExample");
             container.RegisterType(typeof(IDesignPatternExample), typeof(PersonEnumerableAdapterExample),
                 "PersonEnumerableAdapterExample");
+
+            // Customer Adapter Examples
+            container.RegisterType(typeof(IAdapter<IPerson, ICustomer>), typeof(CustomerAdapter));
+            container.RegisterType(typeof(IAdapter<IEnumerable<IPerson>, IEnumerable<ICustomer>>), typeof(CustomerEnumerableAdapter));
+            container.RegisterType(typeof(IDesignPatternExample), typeof(CustomerAdapterExample),
+                "CustomerAdapterExample");
+            container.RegisterType(typeof(IDesignPatternExample), typeof(CustomerEnumerableAdapterExample),
+                "CustomerEnumerableAdapterExample");
         }
     }
 }

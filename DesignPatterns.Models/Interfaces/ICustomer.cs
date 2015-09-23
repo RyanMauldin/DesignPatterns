@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Models.Interfaces
 {
-    public interface ICustomer : IPerson, IEntity
+    public interface ICustomer : IPerson
     {
         string AccountNumber { get; set; }
         string Company { get; set; }

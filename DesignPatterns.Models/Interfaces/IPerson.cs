@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Models.Interfaces
 {
-    public interface IPerson
+    public interface IPerson : IEntity
     {
         string FirstName { get; set; }
         string MiddleName { get; set; }

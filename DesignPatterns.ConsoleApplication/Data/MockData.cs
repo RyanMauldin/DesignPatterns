@@ -18,7 +18,9 @@ namespace DesignPatterns.ConsoleApplication.Data
                 Email = "AGoogleZeros@bing.com",
                 Company = "Poor Man's IOC, Inc.",
                 CreatedOn = DateTime.UtcNow,
-                LastModifiedOn = DateTime.UtcNow
+                CreatedBy = "Ryan Mauldin",
+                LastModifiedOn = DateTime.UtcNow,
+                LastModifiedBy = "Ryan Mauldin"
             },
             new Customer
             {
@@ -30,7 +32,9 @@ namespace DesignPatterns.ConsoleApplication.Data
                 Email = "AGoogleZeros@testing123.com",
                 Company = "Just made it up for reals, LLC",
                 CreatedOn = DateTime.UtcNow,
-                LastModifiedOn = DateTime.UtcNow
+                CreatedBy = "Ryan Mauldin",
+                LastModifiedOn = DateTime.UtcNow,
+                LastModifiedBy = "Ryan Mauldin"
             }
         };
     }

@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 
 namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
 {
-    public class PersonEnumerableAdapterExample : DesignPatternExample
+    public class CustomerEnumerableAdapterExample : DesignPatternExample
     {
-        private readonly IAdapter<IEnumerable<ICustomer>, IEnumerable<IPerson>> _adapter;
+        private readonly IAdapter<IEnumerable<IPerson>, IEnumerable<ICustomer>> _adapter;
 
-        public PersonEnumerableAdapterExample(
-            IAdapter<IEnumerable<ICustomer>, IEnumerable<IPerson>> adapter)
+        public CustomerEnumerableAdapterExample(
+            IAdapter<IEnumerable<IPerson>, IEnumerable<ICustomer>> adapter)
         {
             _adapter = adapter;
         }

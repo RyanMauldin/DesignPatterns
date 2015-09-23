@@ -3,15 +3,15 @@ using DesignPatterns.Models.Interfaces;
 
 namespace DesignPatterns.AdapterImplementation
 {
-    public class PersonAdapter :
-        Adapter<ICustomer, IPerson>
+    public class CustomerAdapter :
+        Adapter<IPerson, ICustomer>
     {
-        public override IPerson Adapt(ICustomer value)
+        public override ICustomer Adapt(IPerson value)
         {
             if (value == null)
                 return null;
 
-            return new Person
+            return new Customer
             {
                 Id = value.Id,
                 FirstName = value.FirstName,

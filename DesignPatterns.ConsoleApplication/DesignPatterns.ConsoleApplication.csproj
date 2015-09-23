@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DesignPatternExample.cs" />
+    <Compile Include="DesignPatternExamples\CustomerAdapterExample.cs" />
+    <Compile Include="DesignPatternExamples\CustomerEnumerableAdapterExample.cs" />
     <Compile Include="DesignPatternExamples\PersonEnumerableAdapterExample.cs" />
     <Compile Include="Interfaces\IDesignPatternExample.cs" />
     <Compile Include="Data\MockData.cs" />
