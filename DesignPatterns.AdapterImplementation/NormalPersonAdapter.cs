@@ -3,7 +3,7 @@ using DesignPatterns.Models.Interfaces;
 
 namespace DesignPatterns.AdapterImplementation
 {
-    public class PersonAdapter :
+    public class NormalPersonAdapter :
         Adapter<ICustomer, IPerson>
     {
         public override IPerson Adapt(ICustomer value)
@@ -11,7 +11,7 @@ namespace DesignPatterns.AdapterImplementation
             if (value == null)
                 return null;
 
-            return new Person
+            return new NormalPerson
             {
                 Id = value.Id,
                 FirstName = value.FirstName,

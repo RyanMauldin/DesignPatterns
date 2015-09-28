@@ -40,14 +40,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="FastPerson.cs" />
     <Compile Include="Interfaces\ICustomer.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IEntityIdentity.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
+    <Compile Include="NormalPerson.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DesignPatterns\DesignPatterns.csproj">
+      <Project>{51DE4404-BC05-489F-AC2D-EF9FEF8BA900}</Project>
+      <Name>DesignPatterns</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

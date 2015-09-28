@@ -4,7 +4,7 @@ using DesignPatterns.Models.Interfaces;
 
 namespace DesignPatterns.AdapterImplementation
 {
-    public class PersonEnumerableAdapter :
+    public class FastPersonEnumerableAdapter :
         Adapter<IEnumerable<ICustomer>, IEnumerable<IPerson>>
     {
         public override IEnumerable<IPerson> Adapt(IEnumerable<ICustomer> value)
@@ -12,10 +12,10 @@ namespace DesignPatterns.AdapterImplementation
             if (value == null)
                 return null;
 
-            var personAdpater = new PersonAdapter();
+            var fastPersonAdpater = new FastPersonAdapter();
 
             return value.Select(
-                p => personAdpater.Adapt(p));
+                p => fastPersonAdpater.Adapt(p));
         }
     }
 }

@@ -12,8 +12,20 @@ namespace DesignPatterns.ConsoleApplication
             var container = UnityConfig.GetConfiguredContainer();
             var builder = new StringBuilder();
 
+            AdapterExamples(container, builder);
+            BehaviorExamples(container, builder);
+
+            // Show output from examples...
+            Console.WriteLine(builder.ToString());
+
+            Console.Write("Press any key to exit the application: ");
+            Console.ReadKey(true);
+        }
+
+        private static void AdapterExamples(IUnityContainer container, StringBuilder builder)
+        {
             // Person Adapter Example
-            var personAdapterExample = container.Resolve<IDesignPatternExample>("PersonAdapterExample"); ;
+            var personAdapterExample = container.Resolve<IDesignPatternExample>("PersonAdapterExample");
             personAdapterExample.Run(builder);
 
             builder.AppendLine();
@@ -25,7 +37,7 @@ namespace DesignPatterns.ConsoleApplication
             builder.AppendLine();
 
             // Customer Adapter Example
-            var customerAdapterExample = container.Resolve<IDesignPatternExample>("CustomerAdapterExample"); ;
+            var customerAdapterExample = container.Resolve<IDesignPatternExample>("CustomerAdapterExample");
             customerAdapterExample.Run(builder);
 
             builder.AppendLine();
@@ -35,12 +47,21 @@ namespace DesignPatterns.ConsoleApplication
             customerEnumerableAdapterExample.Run(builder);
 
             builder.AppendLine();
+        }
 
-            // Show output from examples...
-            Console.WriteLine(builder.ToString());
+        private static void BehaviorExamples(IUnityContainer container, StringBuilder builder)
+        {
+            // Normal Person Behavior Example
+            var normalPersonBehaviorExample = container.Resolve<IDesignPatternExample>("NormalPersonBehaviorExample");
+            normalPersonBehaviorExample.Run(builder);
 
-            Console.Write("Press any key to exit the application: ");
-            Console.ReadKey(true);
+            builder.AppendLine();
+
+            // Fast Person Behavior Example
+            var fastPersonBehaviorExample = container.Resolve<IDesignPatternExample>("FastPersonBehaviorExample");
+            fastPersonBehaviorExample.Run(builder);
+
+            builder.AppendLine();
         }
     }
 }

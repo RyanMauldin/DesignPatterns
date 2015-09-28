@@ -12,9 +12,9 @@ namespace DesignPatterns.ConsoleApplication.Data
             {
                 Id = 1,
                 AccountNumber = "234252",
-                FirstName = "Testin",
-                MiddleName = "This",
-                LastName = "Pattern",
+                FirstName = "Incredible",
+                MiddleName = "",
+                LastName = "Sloth",
                 Email = "AGoogleZeros@bing.com",
                 Company = "Poor Man's IOC, Inc.",
                 CreatedOn = DateTime.UtcNow,

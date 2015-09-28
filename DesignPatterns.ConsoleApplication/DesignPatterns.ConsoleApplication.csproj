@@ -60,6 +60,7 @@
     <Compile Include="DesignPatternExample.cs" />
     <Compile Include="DesignPatternExamples\CustomerAdapterExample.cs" />
     <Compile Include="DesignPatternExamples\CustomerEnumerableAdapterExample.cs" />
+    <Compile Include="DesignPatternExamples\PersonBehaviorExample.cs" />
     <Compile Include="DesignPatternExamples\PersonEnumerableAdapterExample.cs" />
     <Compile Include="Interfaces\IDesignPatternExample.cs" />
     <Compile Include="Data\MockData.cs" />
@@ -76,6 +77,10 @@
     <ProjectReference Include="..\DesignPatterns.AdapterImplementation\DesignPatterns.AdapterImplementation.csproj">
       <Project>{C4CA93EC-B638-486B-A104-1F750AF0C0BB}</Project>
       <Name>DesignPatterns.AdapterImplementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns.BehaviorImplementation\DesignPatterns.BehaviorImplementation.csproj">
+      <Project>{931D59C9-E4CD-41D8-AA38-D547711AEE25}</Project>
+      <Name>DesignPatterns.BehaviorImplementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\DesignPatterns.Models\DesignPatterns.Models.csproj">
       <Project>{7A7DF931-A18F-4DA0-B186-2FA6B3DEBFC8}</Project>
