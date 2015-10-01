@@ -10,10 +10,7 @@ namespace DesignPatterns.BehaviorImplementation
 
         protected PersonDisplayBehavior(StringBuilder builder)
         {
-            lock (builder)
-            {
-                Builder = builder;
-            }
+            Builder = builder;
         }
     }
 }
