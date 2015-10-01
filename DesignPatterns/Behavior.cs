@@ -1,5 +1,4 @@
-﻿using System.Text;
-using DesignPatterns.Interfaces;
+﻿using DesignPatterns.Interfaces;
 
 namespace DesignPatterns
 {
@@ -8,10 +7,5 @@ namespace DesignPatterns
         where T : class
     {
         public abstract void Behave(T target);
-
-        public virtual void BehaveDebug(T target, StringBuilder builder)
-        {
-            // No-Op
-        }
     }
 }

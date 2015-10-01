@@ -6,11 +6,21 @@ namespace DesignPatterns.BehaviorImplementation
     public class PersonDisplayStillBehavior :
         PersonDisplayBehavior
     {
-        public override void BehaveDebug(IPerson target, StringBuilder builder)
+        public PersonDisplayStillBehavior(StringBuilder builder)
+            : base(builder)
         {
-            builder.AppendFormat("{0} {1} is a person standing still.\n",
-                target.FirstName,
-                target.LastName);
+
+        }
+
+        public override void Behave(IPerson target)
+        {
+            lock (Builder)
+            {
+                Builder.AppendFormat(
+                    "{0} {1} is a person standing still.\n",
+                    target.FirstName,
+                    target.LastName);
+            }
         }
     }
 }

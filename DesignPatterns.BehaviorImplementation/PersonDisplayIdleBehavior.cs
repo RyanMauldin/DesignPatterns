@@ -6,11 +6,21 @@ namespace DesignPatterns.BehaviorImplementation
     public class PersonDisplayIdleBehavior :
         PersonDisplayBehavior
     {
-        public override void BehaveDebug(IPerson target, StringBuilder builder)
+        public PersonDisplayIdleBehavior(StringBuilder builder)
+            : base(builder)
         {
-            builder.AppendFormat("{0} {1} is a person that is idle.\n",
-                target.FirstName,
-                target.LastName);
+
+        }
+
+        public override void Behave(IPerson target)
+        {
+            lock (Builder)
+            {
+                Builder.AppendFormat(
+                    "{0} {1} is a person that is idle.\n",
+                    target.FirstName,
+                    target.LastName);
+            }
         }
     }
 }

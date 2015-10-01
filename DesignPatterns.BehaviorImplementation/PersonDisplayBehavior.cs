@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using DesignPatterns.Models.Interfaces;
 
 namespace DesignPatterns.BehaviorImplementation
@@ -7,11 +6,14 @@ namespace DesignPatterns.BehaviorImplementation
     public abstract class PersonDisplayBehavior :
         Behavior<IPerson>
     {
-        public override void Behave(IPerson target)
+        protected StringBuilder Builder { get; set; }
+
+        protected PersonDisplayBehavior(StringBuilder builder)
         {
-            var builder = new StringBuilder();
-            BehaveDebug(target, builder);
-            Console.Write(builder);
+            lock (builder)
+            {
+                Builder = builder;
+            }
         }
     }
 }

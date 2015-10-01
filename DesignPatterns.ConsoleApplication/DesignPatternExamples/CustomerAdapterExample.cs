@@ -20,10 +20,13 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
         public override void Run(StringBuilder builder)
         {
             base.Run(builder);
-            builder.AppendLine(
-                JsonConvert.SerializeObject(
-                    MockData.Customers.Select(p => _adapter.Adapt(p)),
-                    Formatting.Indented));
+            lock (builder)
+            {
+                builder.AppendLine(
+                    JsonConvert.SerializeObject(
+                        MockData.Customers.Select(p => _adapter.Adapt(p)),
+                        Formatting.Indented));
+            }
         }
     }
 }

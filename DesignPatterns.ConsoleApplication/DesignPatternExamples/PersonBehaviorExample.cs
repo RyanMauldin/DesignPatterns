@@ -16,11 +16,11 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
         public override void Run(StringBuilder builder)
         {
             base.Run(builder);
-            _person.Idle(builder);
-            _person.Still(builder);
-            _person.Walk(builder);
-            _person.Run(builder);
-            _person.Drive(builder);
+            _person.Idle();
+            _person.Still();
+            _person.Walk();
+            _person.Run();
+            _person.Drive();
         }
     }
 }

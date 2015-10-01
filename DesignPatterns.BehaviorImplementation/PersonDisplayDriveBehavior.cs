@@ -7,12 +7,23 @@ namespace DesignPatterns.BehaviorImplementation
     public class PersonDisplayDriveBehavior :
         PersonDisplayBehavior
     {
-        public override void BehaveDebug(IPerson target, StringBuilder builder)
+        public PersonDisplayDriveBehavior(StringBuilder builder)
+            : base(builder)
         {
-            builder.AppendFormat("{0} {1} is a person driving {2:N2} mph.\n",
-                target.FirstName,
-                target.LastName,
-                Math.Round(target.VelocityMultiplier * 40m, 2, MidpointRounding.AwayFromZero));
+
+        }
+
+        public override void Behave(IPerson target)
+        {
+            lock (Builder)
+            {
+                Builder.AppendFormat(
+                    "{0} {1} is a person driving {2:N2} mph.\n",
+                    target.FirstName,
+                    target.LastName,
+                    Math.Round(target.VelocityMultiplier * 40m, 2, MidpointRounding.AwayFromZero));
+            }
+            
         }
     }
 }

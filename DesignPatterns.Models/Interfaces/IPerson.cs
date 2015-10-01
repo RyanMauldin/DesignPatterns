@@ -1,5 +1,4 @@
-﻿using System.Text;
-using DesignPatterns.Interfaces;
+﻿using DesignPatterns.Interfaces;
 
 namespace DesignPatterns.Models.Interfaces
 {
@@ -17,10 +16,10 @@ namespace DesignPatterns.Models.Interfaces
         IBehavior<IPerson> DisplayRunBehavior { get; set; }
         IBehavior<IPerson> DisplayDriveBehavior { get; set; }
 
-        void Idle(StringBuilder builder);
-        void Still(StringBuilder builder);
-        void Walk(StringBuilder builder);
-        void Run(StringBuilder builder);
-        void Drive(StringBuilder builder);
+        void Idle();
+        void Still();
+        void Walk();
+        void Run();
+        void Drive();
     }
 }

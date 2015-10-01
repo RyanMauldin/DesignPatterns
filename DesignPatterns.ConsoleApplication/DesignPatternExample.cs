@@ -7,7 +7,12 @@ namespace DesignPatterns.ConsoleApplication
     {
         public virtual void GetHeader(StringBuilder builder)
         {
-            builder.AppendFormat("{0} results:\n\n", this.GetType().Name);
+            lock (builder)
+            {
+                builder.AppendFormat(
+                    "{0} results:\n\n",
+                    GetType().Name);
+            }
         }
 
         public virtual void Run(StringBuilder builder)

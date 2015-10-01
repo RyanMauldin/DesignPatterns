@@ -10,14 +10,13 @@ namespace DesignPatterns.ConsoleApplication
         static void Main(string[] args)
         {
             var container = UnityConfig.GetConfiguredContainer();
-            var builder = new StringBuilder();
+            var builder = container.Resolve<StringBuilder>("ExampleConsoleOutput");
 
             AdapterExamples(container, builder);
             BehaviorExamples(container, builder);
 
             // Show output from examples...
-            Console.WriteLine(builder.ToString());
-
+            Console.Write(builder.ToString());
             Console.Write("Press any key to exit the application: ");
             Console.ReadKey(true);
         }

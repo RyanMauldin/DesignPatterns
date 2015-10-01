@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using DesignPatterns.Interfaces;
 using DesignPatterns.Models.Interfaces;
 
@@ -10,20 +9,6 @@ namespace DesignPatterns.Models
         protected Person()
         {
             VelocityMultiplier = 1m;
-        }
-
-        protected Person(
-            IBehavior<IPerson> displayIdleBehavior,
-            IBehavior<IPerson> displayStillBehavior,
-            IBehavior<IPerson> displayRunBehavior,
-            IBehavior<IPerson> displayWalkBehavior,
-            IBehavior<IPerson> displayDriveBehavior)
-        {
-            DisplayIdleBehavior = displayIdleBehavior;
-            DisplayStillBehavior = displayStillBehavior;
-            DisplayRunBehavior = displayRunBehavior;
-            DisplayWalkBehavior = displayWalkBehavior;
-            DisplayDriveBehavior = displayDriveBehavior;
         }
 
         public int Id { get; set; }
@@ -43,29 +28,29 @@ namespace DesignPatterns.Models
         public IBehavior<IPerson> DisplayWalkBehavior { get; set; }
         public IBehavior<IPerson> DisplayDriveBehavior { get; set; }
 
-        public virtual void Idle(StringBuilder builder)
+        public virtual void Idle()
         {
-            DisplayIdleBehavior.BehaveDebug(this, builder);
+            DisplayIdleBehavior.Behave(this);
         }
 
-        public virtual void Still(StringBuilder builder)
+        public virtual void Still()
         {
-            DisplayStillBehavior.BehaveDebug(this, builder);
+            DisplayStillBehavior.Behave(this);
         }
 
-        public virtual void Walk(StringBuilder builder)
+        public virtual void Walk()
         {
-            DisplayWalkBehavior.BehaveDebug(this, builder);
+            DisplayWalkBehavior.Behave(this);
         }
 
-        public virtual void Run(StringBuilder builder)
+        public virtual void Run()
         {
-            DisplayRunBehavior.BehaveDebug(this, builder);
+            DisplayRunBehavior.Behave(this);
         }
 
-        public virtual void Drive(StringBuilder builder)
+        public virtual void Drive()
         {
-            DisplayDriveBehavior.BehaveDebug(this, builder);
+            DisplayDriveBehavior.Behave(this);
         }
     }
 }
