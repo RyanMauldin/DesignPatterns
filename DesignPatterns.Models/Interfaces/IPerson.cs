@@ -2,6 +2,11 @@
 
 namespace DesignPatterns.Models.Interfaces
 {
+    /// <summary>
+    /// Generic Person style inerface for this sample project. This interface
+    /// would most likely be split up between your poco layer and
+    /// program logic layers.
+    /// </summary>
     public interface IPerson : IEntity
     {
         string FirstName { get; set; }

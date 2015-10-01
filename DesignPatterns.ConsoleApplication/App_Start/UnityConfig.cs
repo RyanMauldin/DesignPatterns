@@ -12,6 +12,10 @@ using Microsoft.Practices.Unity;
 
 namespace DesignPatterns.ConsoleApplication
 {
+    /// <summary>
+    /// The Unity Container configuration class shows IOC (Inverson of Control)
+    /// Design Pattern and principals.
+    /// </summary>
     public static class UnityConfig
     {
         #region Unity Container

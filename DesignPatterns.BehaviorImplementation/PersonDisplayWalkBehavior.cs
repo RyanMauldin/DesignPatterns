@@ -4,6 +4,9 @@ using DesignPatterns.Models.Interfaces;
 
 namespace DesignPatterns.BehaviorImplementation
 {
+    /// <summary>
+    /// Display sample person walking speed to the console.
+    /// </summary>
     public class PersonDisplayWalkBehavior :
         PersonDisplayBehavior
     {
@@ -13,6 +16,10 @@ namespace DesignPatterns.BehaviorImplementation
 
         }
 
+        /// <summary>
+        /// The sample behavior.
+        /// </summary>
+        /// <param name="target">The target or parent object if needed.</param>
         public override void Behave(IPerson target)
         {
             lock (Builder)

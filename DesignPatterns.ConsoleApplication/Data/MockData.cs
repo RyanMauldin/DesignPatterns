@@ -4,6 +4,9 @@ using DesignPatterns.Models;
 
 namespace DesignPatterns.ConsoleApplication.Data
 {
+    /// <summary>
+    /// The class contains Mock Data for the sample Design Pattern code.
+    /// </summary>
     public static class MockData
     {
         public static List<Customer> Customers = new List<Customer>

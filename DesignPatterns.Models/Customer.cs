@@ -2,6 +2,7 @@
 
 namespace DesignPatterns.Models
 {
+    // Sample class for adapters and such.
     public class Customer : Person, ICustomer
     {
         public Customer()

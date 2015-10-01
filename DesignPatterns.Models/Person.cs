@@ -4,6 +4,11 @@ using DesignPatterns.Models.Interfaces;
 
 namespace DesignPatterns.Models
 {
+    /// <summary>
+    /// Generic Person style base class for this sample project. This class
+    /// would most likely be split up as partials between your poco layer and
+    /// program logic layers.
+    /// </summary>
     public abstract class Person : IPerson
     {
         protected Person()

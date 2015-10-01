@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
 {
+    /// <summary>
+    /// The Customer Adapter Example.
+    /// </summary>
     public class CustomerAdapterExample : DesignPatternExample
     {
         private readonly IAdapter<IPerson, ICustomer> _adapter;
@@ -17,6 +20,12 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
             _adapter = adapter;
         }
 
+        /// <summary>
+        /// The run method, runs your example design pattern
+        /// and gathers output for the Console in the
+        /// passed in StringBuilder.
+        /// </summary>
+        /// <param name="builder">The StringBuilder to gather output for the Console.</param>
         public override void Run(StringBuilder builder)
         {
             base.Run(builder);
