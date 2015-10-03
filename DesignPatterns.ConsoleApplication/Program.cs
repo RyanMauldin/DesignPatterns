@@ -14,6 +14,7 @@ namespace DesignPatterns.ConsoleApplication
 
             AdapterExamples(container, builder);
             BehaviorExamples(container, builder);
+            FactoryMethodExamples(container, builder);
 
             // Show output from examples...
             Console.Write(builder.ToString());
@@ -59,6 +60,33 @@ namespace DesignPatterns.ConsoleApplication
             // Fast Person Behavior Example
             var fastPersonBehaviorExample = container.Resolve<IDesignPatternExample>("FastPersonBehaviorExample");
             fastPersonBehaviorExample.Run(builder);
+
+            builder.AppendLine();
+        }
+        
+        private static void FactoryMethodExamples(IUnityContainer container, StringBuilder builder)
+        {
+            // Fast Person Factory Method Example
+            var fastPersonFactoryMethodExample = container.Resolve<IDesignPatternExample>("FastPersonFactoryMethodExample");
+            fastPersonFactoryMethodExample.Run(builder);
+
+            builder.AppendLine();
+
+            // Fast Person Factory Method With Parameter Example
+            var fastPersonFactoryMethodWithParameterExample = container.Resolve<IDesignPatternExample>("FastPersonFactoryMethodWithParameterExample");
+            fastPersonFactoryMethodWithParameterExample.Run(builder);
+
+            builder.AppendLine();
+
+            // Normal Person Factory Method Example
+            var normalPersonFactoryMethodExample = container.Resolve<IDesignPatternExample>("NormalPersonFactoryMethodExample");
+            normalPersonFactoryMethodExample.Run(builder);
+
+            builder.AppendLine();
+
+            // Normal Person Factory Method With Parameter Example.
+            var normalPersonFactoryMethodWithParameterExample = container.Resolve<IDesignPatternExample>("NormalPersonFactoryMethodWithParameterExample");
+            normalPersonFactoryMethodWithParameterExample.Run(builder);
 
             builder.AppendLine();
         }

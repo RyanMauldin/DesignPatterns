@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.AdapterImple
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.BehaviorImplementation", "DesignPatterns.BehaviorImplementation\DesignPatterns.BehaviorImplementation.csproj", "{931D59C9-E4CD-41D8-AA38-D547711AEE25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.FactoryMethodImplementation", "DesignPatterns.FactoryMethodImplementation\DesignPatterns.FactoryMethodImplementation.csproj", "{B1A81042-AE45-4262-B341-FEC03EF70184}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{931D59C9-E4CD-41D8-AA38-D547711AEE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{931D59C9-E4CD-41D8-AA38-D547711AEE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{931D59C9-E4CD-41D8-AA38-D547711AEE25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A81042-AE45-4262-B341-FEC03EF70184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A81042-AE45-4262-B341-FEC03EF70184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A81042-AE45-4262-B341-FEC03EF70184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A81042-AE45-4262-B341-FEC03EF70184}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

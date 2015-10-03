@@ -6,7 +6,9 @@ using DesignPatterns.BehaviorImplementation;
 using DesignPatterns.ConsoleApplication.Data;
 using DesignPatterns.ConsoleApplication.DesignPatternExamples;
 using DesignPatterns.ConsoleApplication.Interfaces;
+using DesignPatterns.FactoryMethodImplementation;
 using DesignPatterns.Interfaces;
+using DesignPatterns.Models;
 using DesignPatterns.Models.Interfaces;
 using Microsoft.Practices.Unity;
 
@@ -125,6 +127,30 @@ namespace DesignPatterns.ConsoleApplication
                 PersonBehaviorExample>(
                     "FastPersonBehaviorExample",
                     new InjectionConstructor(fastPerson));
+
+            // Fast Person Factory Method Example.
+            container.RegisterType<IFactoryMethod<FastPerson>, FastPersonFactoryMethod>();
+            container.RegisterType<IDesignPatternExample,
+                FastPersonFactoryMethodExample>(
+                    "FastPersonFactoryMethodExample");
+
+            // Fast Person Factory Method With Parameter Example.
+            container.RegisterType<IFactoryMethodWithParameter<ICustomer, FastPerson>, FastPersonFactoryMethodWithParameter>();
+            container.RegisterType<IDesignPatternExample,
+                FastPersonFactoryMethodWithParameterExample>(
+                    "FastPersonFactoryMethodWithParameterExample");
+
+            // Normal Person Factory Method Example.
+            container.RegisterType<IFactoryMethod<NormalPerson>, NormalPersonFactoryMethod>();
+            container.RegisterType<IDesignPatternExample,
+                NormalPersonFactoryMethodExample>(
+                    "NormalPersonFactoryMethodExample");
+
+            // Normal Person Factory Method With Parameter Example.
+            container.RegisterType<IFactoryMethodWithParameter<ICustomer, NormalPerson>, NormalPersonFactoryMethodWithParameter>();
+            container.RegisterType<IDesignPatternExample,
+                NormalPersonFactoryMethodWithParameterExample>(
+                    "NormalPersonFactoryMethodWithParameterExample");
         }
     }
 }

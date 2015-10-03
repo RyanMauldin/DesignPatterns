@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{51DE4404-BC05-489F-AC2D-EF9FEF8BA900}</ProjectGuid>
+    <ProjectGuid>{B1A81042-AE45-4262-B341-FEC03EF70184}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DesignPatterns</RootNamespace>
-    <AssemblyName>DesignPatterns</AssemblyName>
+    <RootNamespace>DesignPatterns.FactoryMethodImplementation</RootNamespace>
+    <AssemblyName>DesignPatterns.FactoryMethodImplementation</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,15 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapter.cs" />
-    <Compile Include="Behavior.cs" />
-    <Compile Include="FactoryMethod.cs" />
-    <Compile Include="FactoryMethodWithParameter.cs" />
-    <Compile Include="Interfaces\IFactoryMethodWithParameter.cs" />
-    <Compile Include="Interfaces\IFactoryMethod.cs" />
-    <Compile Include="Interfaces\IAdapter.cs" />
-    <Compile Include="Interfaces\IBehavior.cs" />
+    <Compile Include="FastPersonFactoryMethod.cs" />
+    <Compile Include="FastPersonFactoryMethodWithParameter.cs" />
+    <Compile Include="NormalPersonFactoryMethod.cs" />
+    <Compile Include="NormalPersonFactoryMethodWithParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DesignPatterns.Models\DesignPatterns.Models.csproj">
+      <Project>{7A7DF931-A18F-4DA0-B186-2FA6B3DEBFC8}</Project>
+      <Name>DesignPatterns.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\DesignPatterns.csproj">
+      <Project>{51de4404-bc05-489f-ac2d-ef9fef8ba900}</Project>
+      <Name>DesignPatterns</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -60,6 +60,10 @@
     <Compile Include="DesignPatternExample.cs" />
     <Compile Include="DesignPatternExamples\CustomerAdapterExample.cs" />
     <Compile Include="DesignPatternExamples\CustomerEnumerableAdapterExample.cs" />
+    <Compile Include="DesignPatternExamples\FastPersonFactoryMethodExample.cs" />
+    <Compile Include="DesignPatternExamples\FastPersonFactoryMethodWithParameterExample.cs" />
+    <Compile Include="DesignPatternExamples\NormalPersonFactoryMethodExample.cs" />
+    <Compile Include="DesignPatternExamples\NormalPersonFactoryMethodWithParameterExample.cs" />
     <Compile Include="DesignPatternExamples\PersonBehaviorExample.cs" />
     <Compile Include="DesignPatternExamples\PersonEnumerableAdapterExample.cs" />
     <Compile Include="Interfaces\IDesignPatternExample.cs" />
@@ -81,6 +85,10 @@
     <ProjectReference Include="..\DesignPatterns.BehaviorImplementation\DesignPatterns.BehaviorImplementation.csproj">
       <Project>{931D59C9-E4CD-41D8-AA38-D547711AEE25}</Project>
       <Name>DesignPatterns.BehaviorImplementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns.FactoryMethodImplementation\DesignPatterns.FactoryMethodImplementation.csproj">
+      <Project>{B1A81042-AE45-4262-B341-FEC03EF70184}</Project>
+      <Name>DesignPatterns.FactoryMethodImplementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\DesignPatterns.Models\DesignPatterns.Models.csproj">
       <Project>{7A7DF931-A18F-4DA0-B186-2FA6B3DEBFC8}</Project>

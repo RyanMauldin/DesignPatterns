@@ -1,24 +1,22 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using DesignPatterns.ConsoleApplication.Data;
+﻿using System.Text;
 using DesignPatterns.Interfaces;
-using DesignPatterns.Models.Interfaces;
+using DesignPatterns.Models;
 using Newtonsoft.Json;
 
 namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
 {
     /// <summary>
-    /// The Customer Enumerable Adapter Example.
+    /// The Fast Person Factory Method Example.
     /// </summary>
-    public class CustomerEnumerableAdapterExample :
+    public class FastPersonFactoryMethodExample :
         DesignPatternExample
     {
-        private readonly IAdapter<IEnumerable<IPerson>, IEnumerable<ICustomer>> _adapter;
+        private readonly IFactoryMethod<FastPerson> _factoryMethod;
 
-        public CustomerEnumerableAdapterExample(
-            IAdapter<IEnumerable<IPerson>, IEnumerable<ICustomer>> adapter)
+        public FastPersonFactoryMethodExample(
+            IFactoryMethod<FastPerson> factoryMethod)
         {
-            _adapter = adapter;
+            _factoryMethod = factoryMethod;
         }
 
         /// <summary>
@@ -34,7 +32,7 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
             {
                 builder.AppendLine(
                     JsonConvert.SerializeObject(
-                        _adapter.Adapt(MockData.Customers),
+                        _factoryMethod.Create(),
                         Formatting.Indented));
             }
         }

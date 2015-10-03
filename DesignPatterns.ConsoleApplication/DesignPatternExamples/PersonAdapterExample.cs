@@ -10,7 +10,8 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
     /// <summary>
     /// The Person Adapter Example.
     /// </summary>
-    public class PersonAdapterExample : DesignPatternExample
+    public class PersonAdapterExample :
+        DesignPatternExample
     {
         private readonly IAdapter<ICustomer, IPerson> _adapter;
 

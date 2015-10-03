@@ -6,7 +6,8 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
     /// <summary>
     /// The Person Behavior Example.
     /// </summary>
-    public class PersonBehaviorExample : DesignPatternExample
+    public class PersonBehaviorExample :
+        DesignPatternExample
     {
         private readonly IPerson _person;
 
