@@ -84,7 +84,7 @@ namespace DesignPatterns.ConsoleApplication
 
             builder.AppendLine();
 
-            // Normal Person Factory Method With Parameter Example.
+            // Normal Person Factory Method With Parameter Example
             var normalPersonFactoryMethodWithParameterExample = container.Resolve<IDesignPatternExample>("NormalPersonFactoryMethodWithParameterExample");
             normalPersonFactoryMethodWithParameterExample.Run(builder);
 
