@@ -3,9 +3,18 @@ using DesignPatterns.Models.Interfaces;
 
 namespace DesignPatterns.FactoryMethodImplementation
 {
+    /// <summary>
+    /// Factory method pattern with Customer paramter for FastPerson objects.
+    /// </summary>
     public class FastPersonFactoryMethodWithParameter :
         FactoryMethodWithParameter<ICustomer, FastPerson>
     {
+        /// <summary>
+        /// Creates a new instance of FastPerson based on
+        /// the customer paramter.
+        /// </summary>
+        /// <param name="value">The Customer to create as FastPerson.</param>
+        /// <returns>A new instance of FastPerson based on the customer data.</returns>
         public override FastPerson Create(ICustomer value)
         {
             if (value == null)

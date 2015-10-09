@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
 {
     /// <summary>
-    /// The Normal Person Factory Method With Parameter Example.
+    /// The Normal Person Factory Method with Parameter Example.
     /// </summary>
     public class NormalPersonFactoryMethodWithParameterExample :
         DesignPatternExample
