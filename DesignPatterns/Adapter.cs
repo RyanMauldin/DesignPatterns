@@ -5,9 +5,7 @@ namespace DesignPatterns
     /// <summary>
     /// Intent - Convert an initial interface, and adapt it into
     /// a result interface that a client expects. This is an example
-    /// base class to derive from to give an example Adapter. Many
-    /// people write monolithic adapters with many methods, however
-    /// I am achieving simplicity here and SOLID.
+    /// base class to derive from to give an example Adapter.
     /// </summary>
     /// <typeparam name="TInput">The input type.</typeparam>
     /// <typeparam name="TOutput">The Output type.</typeparam>
