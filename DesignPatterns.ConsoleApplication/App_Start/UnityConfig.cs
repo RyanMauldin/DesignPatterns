@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 using DesignPatterns.AdapterImplementation;
 using DesignPatterns.BehaviorImplementation;
+using DesignPatterns.CommandImplementation;
+using DesignPatterns.CommandImplementation.Interfaces;
 using DesignPatterns.ConsoleApplication.Data;
 using DesignPatterns.ConsoleApplication.DesignPatternExamples;
 using DesignPatterns.ConsoleApplication.Interfaces;
@@ -151,6 +154,32 @@ namespace DesignPatterns.ConsoleApplication
             container.RegisterType<IDesignPatternExample,
                 NormalPersonFactoryMethodWithParameterExample>(
                     "NormalPersonFactoryMethodWithParameterExample");
+
+            // Command Pattern Example
+            var maximumCommandStackSize = Convert.ToInt32(ConfigurationManager.AppSettings["MaximumCommandStackSize"]);
+            container.RegisterType<ICommandManager, CommandManager>(
+                "CommandManager",
+                new InjectionConstructor(maximumCommandStackSize));
+            container.RegisterType<ICommand, SkipCommand>(
+                "SkipCommand",
+                new InjectionConstructor(
+                    new ResolvedParameter<StringBuilder>("ExampleConsoleOutput")));
+            container.RegisterType<ICommand, HitCommand>(
+                "HitCommand",
+                new InjectionConstructor(
+                    new ResolvedParameter<StringBuilder>("ExampleConsoleOutput")));
+            container.RegisterType<ICommand, ShootCommand>(
+                "ShootCommand",
+                new InjectionConstructor(
+                    new ResolvedParameter<StringBuilder>("ExampleConsoleOutput")));
+            container.RegisterType<IDesignPatternExample,
+                CommandPatternExample>(
+                    "CommandPatternExample",
+                    new InjectionConstructor(
+                        new ResolvedParameter<CommandManager>("CommandManager"),
+                        new ResolvedParameter<ICommand>("SkipCommand"),
+                        new ResolvedParameter<ICommand>("HitCommand"),
+                        new ResolvedParameter<ICommand>("ShootCommand")));
         }
     }
 }

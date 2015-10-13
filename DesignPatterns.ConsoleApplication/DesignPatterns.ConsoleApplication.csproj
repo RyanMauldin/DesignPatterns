@@ -49,6 +49,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DesignPatternExample.cs" />
+    <Compile Include="DesignPatternExamples\CommandPatternExample.cs" />
     <Compile Include="DesignPatternExamples\CustomerAdapterExample.cs" />
     <Compile Include="DesignPatternExamples\CustomerEnumerableAdapterExample.cs" />
     <Compile Include="DesignPatternExamples\FastPersonFactoryMethodExample.cs" />
@@ -85,6 +87,10 @@
     <ProjectReference Include="..\DesignPatterns.BehaviorImplementation\DesignPatterns.BehaviorImplementation.csproj">
       <Project>{931D59C9-E4CD-41D8-AA38-D547711AEE25}</Project>
       <Name>DesignPatterns.BehaviorImplementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns.CommandImplementation\DesignPatterns.CommandImplementation.csproj">
+      <Project>{72862878-5241-4C71-9D84-6B17C3BDC3ED}</Project>
+      <Name>DesignPatterns.CommandImplementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\DesignPatterns.FactoryMethodImplementation\DesignPatterns.FactoryMethodImplementation.csproj">
       <Project>{B1A81042-AE45-4262-B341-FEC03EF70184}</Project>

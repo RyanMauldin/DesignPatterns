@@ -12,9 +12,12 @@ namespace DesignPatterns.ConsoleApplication
             var container = UnityConfig.GetConfiguredContainer();
             var builder = container.Resolve<StringBuilder>("ExampleConsoleOutput");
 
+            // Comment out methods as needed as not all of them will show in default console.
+            // One could also turn the StringBuilder output into a file.
             AdapterExamples(container, builder);
             BehaviorExamples(container, builder);
             FactoryMethodExamples(container, builder);
+            CommandPatternExamples(container, builder);
 
             // Show output from examples...
             Console.Write(builder.ToString());
@@ -87,6 +90,15 @@ namespace DesignPatterns.ConsoleApplication
             // Normal Person Factory Method With Parameter Example
             var normalPersonFactoryMethodWithParameterExample = container.Resolve<IDesignPatternExample>("NormalPersonFactoryMethodWithParameterExample");
             normalPersonFactoryMethodWithParameterExample.Run(builder);
+
+            builder.AppendLine();
+        }
+        
+        private static void CommandPatternExamples(IUnityContainer container, StringBuilder builder)
+        {
+            // Command Pattern Example
+            var commandPatternExample = container.Resolve<IDesignPatternExample>("CommandPatternExample");
+            commandPatternExample.Run(builder);
 
             builder.AppendLine();
         }
