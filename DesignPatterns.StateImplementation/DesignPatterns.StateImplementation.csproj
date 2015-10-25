@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{72862878-5241-4C71-9D84-6B17C3BDC3ED}</ProjectGuid>
+    <ProjectGuid>{5F02B7B8-0133-482F-89F2-71C5A80EDD98}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DesignPatterns.CommandImplementation</RootNamespace>
-    <AssemblyName>DesignPatterns.CommandImplementation</AssemblyName>
+    <RootNamespace>DesignPatterns.StateImplementation</RootNamespace>
+    <AssemblyName>DesignPatterns.StateImplementation</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,18 +39,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandManager.cs" />
-    <Compile Include="EmptyGunFireCommand.cs" />
-    <Compile Include="HitCommand.cs" />
-    <Compile Include="Interfaces\ICommandManager.cs" />
-    <Compile Include="MeleeCommand.cs" />
+    <Compile Include="Ammunition\Ammunition.cs" />
+    <Compile Include="Ammunition\Containers\AmmunitionContainer.cs" />
+    <Compile Include="Ammunition\Containers\AmmunitionBox.cs" />
+    <Compile Include="Ammunition\Containers\AmmunitionClip.cs" />
+    <Compile Include="Ammunition\Containers\Interfaces\IAmmunitionContainer.cs" />
+    <Compile Include="Ammunition\Containers\AmmunitionMagazine.cs" />
+    <Compile Include="Ammunition\Interfaces\IAmmunition.cs" />
+    <Compile Include="Ammunition\M16StandardAmmunition.cs" />
+    <Compile Include="Interfaces\IItem.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="WeaponConditions\DamagedWeaponConditionState.cs" />
+    <Compile Include="WeaponConditions\DestroyedWeaponConditionState.cs" />
+    <Compile Include="Weapons\Guns\Interfaces\IBurstFireGun.cs" />
+    <Compile Include="Weapons\Guns\Gun.cs" />
+    <Compile Include="Weapons\Guns\Interfaces\IGun.cs" />
+    <Compile Include="Weapons\Interfaces\IWeapon.cs" />
+    <Compile Include="WeaponConditions\Interfaces\IWeaponConditionState.cs" />
+    <Compile Include="WeaponConditions\PerfectWeaponConditionState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShootCommand.cs" />
-    <Compile Include="SkipCommand.cs" />
+    <Compile Include="WeaponConditions\UsedWeaponConditionState.cs" />
+    <Compile Include="Weapons\Guns\M16.cs" />
+    <Compile Include="Weapons\Weapon.cs" />
+    <Compile Include="WeaponConditions\WeaponConditionState.cs" />
+    <Compile Include="WeaponConditions\WornWeaponConditionState.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DesignPatterns.CommandImplementation\DesignPatterns.CommandImplementation.csproj">
+      <Project>{72862878-5241-4c71-9d84-6b17c3bdc3ed}</Project>
+      <Name>DesignPatterns.CommandImplementation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DesignPatterns\DesignPatterns.csproj">
-      <Project>{51DE4404-BC05-489F-AC2D-EF9FEF8BA900}</Project>
+      <Project>{51de4404-bc05-489f-ac2d-ef9fef8ba900}</Project>
       <Name>DesignPatterns</Name>
     </ProjectReference>
   </ItemGroup>

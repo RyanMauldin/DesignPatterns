@@ -5,8 +5,8 @@ namespace DesignPatterns.CommandImplementation
     /// <summary>
     /// Skip Command Example
     /// </summary>
-    public class SkipCommand
-        : Command
+    public class SkipCommand :
+        Command
     {
         private readonly StringBuilder _builder;
 

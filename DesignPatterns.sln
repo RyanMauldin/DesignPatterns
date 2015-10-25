@@ -17,6 +17,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.FactoryMetho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.CommandImplementation", "DesignPatterns.CommandImplementation\DesignPatterns.CommandImplementation.csproj", "{72862878-5241-4C71-9D84-6B17C3BDC3ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.StateImplementation", "DesignPatterns.StateImplementation\DesignPatterns.StateImplementation.csproj", "{5F02B7B8-0133-482F-89F2-71C5A80EDD98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreationalPatterns", "CreationalPatterns", "{837D0DC3-0F70-4566-BD19-C0FBB84C26D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StructuralPatterns", "StructuralPatterns", "{282156E0-43B6-4CED-A5CA-60EA8FD31310}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BehavioralPatterns", "BehavioralPatterns", "{D6B3AF1B-A3A7-4F1E-A5E7-46F0F59326B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConcurrencyPatterns", "ConcurrencyPatterns", "{05DD6905-D9C2-4013-B463-1433875CB9A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,8 +61,19 @@ Global
 		{72862878-5241-4C71-9D84-6B17C3BDC3ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72862878-5241-4C71-9D84-6B17C3BDC3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72862878-5241-4C71-9D84-6B17C3BDC3ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F02B7B8-0133-482F-89F2-71C5A80EDD98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F02B7B8-0133-482F-89F2-71C5A80EDD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F02B7B8-0133-482F-89F2-71C5A80EDD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F02B7B8-0133-482F-89F2-71C5A80EDD98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4CA93EC-B638-486B-A104-1F750AF0C0BB} = {282156E0-43B6-4CED-A5CA-60EA8FD31310}
+		{931D59C9-E4CD-41D8-AA38-D547711AEE25} = {D6B3AF1B-A3A7-4F1E-A5E7-46F0F59326B2}
+		{B1A81042-AE45-4262-B341-FEC03EF70184} = {837D0DC3-0F70-4566-BD19-C0FBB84C26D4}
+		{72862878-5241-4C71-9D84-6B17C3BDC3ED} = {D6B3AF1B-A3A7-4F1E-A5E7-46F0F59326B2}
+		{5F02B7B8-0133-482F-89F2-71C5A80EDD98} = {D6B3AF1B-A3A7-4F1E-A5E7-46F0F59326B2}
 	EndGlobalSection
 EndGlobal

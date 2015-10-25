@@ -3,14 +3,14 @@
 namespace DesignPatterns.CommandImplementation
 {
     /// <summary>
-    /// Shoot Command Example
+    /// http://halo.wikia.com/wiki/Melee
     /// </summary>
-    public class ShootCommand :
+    public class MeleeCommand :
         Command
     {
         private readonly StringBuilder _builder;
 
-        public ShootCommand(StringBuilder builder)
+        public MeleeCommand(StringBuilder builder)
         {
             _builder = builder;
         }
@@ -22,7 +22,7 @@ namespace DesignPatterns.CommandImplementation
         {
             lock (_builder)
             {
-                _builder.AppendLine("Pow");
+                _builder.AppendLine("Smash");
             }
         }
 
@@ -41,8 +41,8 @@ namespace DesignPatterns.CommandImplementation
         {
             lock (_builder)
             {
-                _builder.AppendLine("Undo Pow");
-            }
+                _builder.AppendLine("Undo Smash");
+            }   
         }
     }
 }

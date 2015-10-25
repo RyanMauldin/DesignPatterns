@@ -2,15 +2,12 @@
 
 namespace DesignPatterns.CommandImplementation
 {
-    /// <summary>
-    /// Shoot Command Example
-    /// </summary>
-    public class ShootCommand :
+    public class EmptyGunFireCommand :
         Command
     {
         private readonly StringBuilder _builder;
 
-        public ShootCommand(StringBuilder builder)
+        public EmptyGunFireCommand(StringBuilder builder)
         {
             _builder = builder;
         }
@@ -22,7 +19,7 @@ namespace DesignPatterns.CommandImplementation
         {
             lock (_builder)
             {
-                _builder.AppendLine("Pow");
+                _builder.AppendLine("Clink");
             }
         }
 
@@ -41,8 +38,8 @@ namespace DesignPatterns.CommandImplementation
         {
             lock (_builder)
             {
-                _builder.AppendLine("Undo Pow");
-            }
+                _builder.AppendLine("Undo Clink");
+            }   
         }
     }
 }

@@ -5,8 +5,8 @@ namespace DesignPatterns.CommandImplementation
     /// <summary>
     /// Hit Command Example
     /// </summary>
-    public class HitCommand
-        : Command
+    public class HitCommand :
+        Command
     {
         private readonly StringBuilder _builder;
 
