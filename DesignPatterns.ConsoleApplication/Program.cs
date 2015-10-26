@@ -15,12 +15,23 @@ namespace DesignPatterns.ConsoleApplication
             // Comment out methods as needed as not all of them will show in default console.
             // One could also turn the StringBuilder output into a file.
             AdapterExamples(container, builder);
+            Console.Write(builder.ToString());
+            builder.Clear();
             BehaviorExamples(container, builder);
+            Console.Write(builder.ToString());
+            builder.Clear();
             FactoryMethodExamples(container, builder);
+            Console.Write(builder.ToString());
+            builder.Clear();
             CommandPatternExamples(container, builder);
+            Console.Write(builder.ToString());
+            builder.Clear();
+            StatePatternExamples(container, builder);
+            Console.Write(builder.ToString());
+            builder.Clear();
 
             // Show output from examples...
-            Console.Write(builder.ToString());
+            
             Console.Write("Press any key to exit the application: ");
             Console.ReadKey(true);
         }
@@ -99,6 +110,15 @@ namespace DesignPatterns.ConsoleApplication
             // Command Pattern Example
             var commandPatternExample = container.Resolve<IDesignPatternExample>("CommandPatternExample");
             commandPatternExample.Run(builder);
+
+            builder.AppendLine();
+        }
+
+        private static void StatePatternExamples(IUnityContainer container, StringBuilder builder)
+        {
+            // State Pattern Example
+            var statePatternExample = container.Resolve<IDesignPatternExample>("StatePatternExample");
+            statePatternExample.Run(builder);
 
             builder.AppendLine();
         }

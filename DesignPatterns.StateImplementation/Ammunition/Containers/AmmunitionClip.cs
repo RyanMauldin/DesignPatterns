@@ -1,12 +1,16 @@
-﻿namespace DesignPatterns.StateImplementation.Ammunition.Containers
+﻿using DesignPatterns.StateImplementation.Ammunition.Interfaces;
+
+namespace DesignPatterns.StateImplementation.Ammunition.Containers
 {
     public class AmmunitionClip :
         AmmunitionContainer
     {
         public AmmunitionClip(
+            IAmmunition ammunition,
             int ammunitionCount,
             int maxiumAmmunitionCount) :
-                base(
+            base(
+                    ammunition,
                     ammunitionCount,
                     maxiumAmmunitionCount)
         {

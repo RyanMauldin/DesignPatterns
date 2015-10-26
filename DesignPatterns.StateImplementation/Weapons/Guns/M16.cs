@@ -10,23 +10,13 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
         Gun, IBurstFireGun
     {
         public M16(
-            IWeaponConditionState perfectWeaponCondition,
-            IWeaponConditionState usedWeaponCondition,
-            IWeaponConditionState wornWeaponCondition,
-            IWeaponConditionState damagedWeaponCondition,
-            IWeaponConditionState destroyedWeaponCondition,
-            IWeaponConditionState weaponCondition,
+            IWeaponCondition weaponCondition,
             ICommand meleeCommand,
             ICommand shootCommand,
             ICommand emptyGunFireCommand,
             IAmmunitionContainer ammunitionContainer,
             bool isBurstFireEngaged) :
                 base(
-                    perfectWeaponCondition,
-                    usedWeaponCondition,
-                    wornWeaponCondition,
-                    damagedWeaponCondition,
-                    destroyedWeaponCondition,
                     weaponCondition,
                     meleeCommand,
                     shootCommand,
@@ -62,14 +52,13 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
         {
             lock (this)
             {
-                if (LastShot.AddSeconds((double)ShotRate) < DateTime.UtcNow)
+                if (LastShot.AddSeconds((double)ShotRate) >= DateTime.UtcNow)
                     return;
 
                 LastShot = DateTime.UtcNow;
 
                 var bulletsForAttack = Math.Min(IsBurstFireEngaged ? 3 : 1, AmmunitionContainer.AmmunitionCount);
                 AmmunitionContainer.AmmunitionCount -= bulletsForAttack;
-
                 switch (bulletsForAttack)
                 {
                     case 3:
@@ -81,21 +70,21 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
                         // for animation purposes instead of calling
                         // ShootCommand 3 times here.
                         ShootCommand.Execute();
-                        WeaponCondition.WeaponUsed();
+                        CurrentWeaponConditionState.WeaponUsed();
                         ShootCommand.Execute();
-                        WeaponCondition.WeaponUsed();
+                        CurrentWeaponConditionState.WeaponUsed();
                         ShootCommand.Execute();
-                        WeaponCondition.WeaponUsed();
+                        CurrentWeaponConditionState.WeaponUsed();
                         break;
                     case 2:
                         ShootCommand.Execute();
-                        WeaponCondition.WeaponUsed();
+                        CurrentWeaponConditionState.WeaponUsed();
                         ShootCommand.Execute();
-                        WeaponCondition.WeaponUsed();
+                        CurrentWeaponConditionState.WeaponUsed();
                         break;
                     case 1:
                         ShootCommand.Execute();
-                        WeaponCondition.WeaponUsed();
+                        CurrentWeaponConditionState.WeaponUsed();
                         break;
                     default:
                         EmptyGunFireCommand.Execute();
@@ -113,18 +102,19 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
         {
             lock (this)
             {
-                if (LastMelee.AddSeconds((double)MeleeRate) < DateTime.UtcNow)
+                if (LastMelee.AddSeconds((double)MeleeRate) >= DateTime.UtcNow)
                     return;
 
                 LastMelee = DateTime.UtcNow;
                 MeleeCommand.Execute();
-                WeaponCondition.WeaponUsed();
+                var weaponConditionState = ((IWeaponConditionState)WeaponCondition.CurrentState);
+                weaponConditionState.WeaponUsed();
             }
         }
 
         public override decimal AccuracyMulitplier
         {
-            get { return WeaponCondition.AccuracyMulitplier; }
+            get { return CurrentWeaponConditionState.AccuracyMulitplier; }
         }
 
         // IGun
@@ -147,7 +137,7 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
         {
             lock (this)
             {
-                if (!WeaponCondition.CanBeUsed)
+                if (!CurrentWeaponConditionState.CanBeUsed)
                     return false;
 
                 lock (container)
@@ -171,5 +161,10 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
         }
 
         public bool IsBurstFireEngaged { get; set; }
+
+        private IWeaponConditionState CurrentWeaponConditionState
+        {
+            get { return ((IWeaponConditionState)WeaponCondition.CurrentState); }
+        }
     }
 }

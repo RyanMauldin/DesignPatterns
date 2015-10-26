@@ -13,6 +13,14 @@ using DesignPatterns.FactoryMethodImplementation;
 using DesignPatterns.Interfaces;
 using DesignPatterns.Models;
 using DesignPatterns.Models.Interfaces;
+using DesignPatterns.StateImplementation.Ammunition;
+using DesignPatterns.StateImplementation.Ammunition.Containers;
+using DesignPatterns.StateImplementation.Ammunition.Containers.Interfaces;
+using DesignPatterns.StateImplementation.Ammunition.Interfaces;
+using DesignPatterns.StateImplementation.WeaponConditions;
+using DesignPatterns.StateImplementation.WeaponConditions.Interfaces;
+using DesignPatterns.StateImplementation.Weapons.Guns;
+using DesignPatterns.StateImplementation.Weapons.Guns.Interfaces;
 using Microsoft.Practices.Unity;
 
 namespace DesignPatterns.ConsoleApplication
@@ -172,6 +180,14 @@ namespace DesignPatterns.ConsoleApplication
                 "ShootCommand",
                 new InjectionConstructor(
                     new ResolvedParameter<StringBuilder>("ExampleConsoleOutput")));
+            container.RegisterType<ICommand, MeleeCommand>(
+                "MeleeCommand",
+                new InjectionConstructor(
+                    new ResolvedParameter<StringBuilder>("ExampleConsoleOutput")));
+            container.RegisterType<ICommand, EmptyGunFireCommand>(
+                "EmptyGunFireCommand",
+                new InjectionConstructor(
+                    new ResolvedParameter<StringBuilder>("ExampleConsoleOutput")));
             container.RegisterType<IDesignPatternExample,
                 CommandPatternExample>(
                     "CommandPatternExample",
@@ -180,6 +196,64 @@ namespace DesignPatterns.ConsoleApplication
                         new ResolvedParameter<ICommand>("SkipCommand"),
                         new ResolvedParameter<ICommand>("HitCommand"),
                         new ResolvedParameter<ICommand>("ShootCommand")));
+
+            // State Pattern Example
+            container.RegisterType<IWeaponConditionState, PerfectWeaponConditionState>(
+                "PerfectWeaponConditionState",
+                new InjectionConstructor());
+            container.RegisterType<IWeaponConditionState, UsedWeaponConditionState>(
+                "UsedWeaponConditionState",
+                new InjectionConstructor());
+            container.RegisterType<IWeaponConditionState, WornWeaponConditionState>(
+                "WornWeaponConditionState",
+                new InjectionConstructor());
+            container.RegisterType<IWeaponConditionState, DamagedWeaponConditionState>(
+                "DamagedWeaponConditionState",
+                new InjectionConstructor());
+            container.RegisterType<IWeaponConditionState, DestroyedWeaponConditionState>(
+                "DestroyedWeaponConditionState",
+                new InjectionConstructor());
+            container.RegisterType<IWeaponCondition, WeaponCondition>(
+                "WeaponCondition",
+                new InjectionConstructor(
+                    new ResolvedParameter<IWeaponConditionState>("PerfectWeaponConditionState"),
+                    new ResolvedParameter<IWeaponConditionState>("UsedWeaponConditionState"),
+                    new ResolvedParameter<IWeaponConditionState>("WornWeaponConditionState"),
+                    new ResolvedParameter<IWeaponConditionState>("DamagedWeaponConditionState"),
+                    new ResolvedParameter<IWeaponConditionState>("DestroyedWeaponConditionState"),
+                    new ResolvedParameter<IWeaponConditionState>("PerfectWeaponConditionState")));
+            const int m16StandardAmmunitionMagazineSize = 20;
+            const int m16StandardAmmunitionBoxSize = 200;
+            container.RegisterType<IAmmunition, M16StandardAmmunition>(
+                "M16StandardAmmunition");
+            container.RegisterType<IAmmunitionContainer, AmmunitionMagazine>(
+                "M16StandardAmmunitionMagazine",
+                new InjectionConstructor(
+                    new ResolvedParameter<IAmmunition>("M16StandardAmmunition"),
+                    m16StandardAmmunitionMagazineSize,
+                    m16StandardAmmunitionMagazineSize));
+            container.RegisterType<IAmmunitionContainer, AmmunitionMagazine>(
+                "M16StandardAmmunitionBox",
+                new InjectionConstructor(
+                    new ResolvedParameter<IAmmunition>("M16StandardAmmunition"),
+                    m16StandardAmmunitionBoxSize,
+                    m16StandardAmmunitionBoxSize));
+            const bool isBurstFireEngaged = true;
+            container.RegisterType<IGun, M16>(
+                "M16",
+                new InjectionConstructor(
+                    new ResolvedParameter<IWeaponCondition>("WeaponCondition"),
+                    new ResolvedParameter<ICommand>("MeleeCommand"),
+                    new ResolvedParameter<ICommand>("ShootCommand"),
+                    new ResolvedParameter<ICommand>("EmptyGunFireCommand"),
+                    new ResolvedParameter<IAmmunitionContainer>("M16StandardAmmunitionMagazine"),
+                    isBurstFireEngaged));
+            container.RegisterType<IDesignPatternExample,
+                StatePatternExample>(
+                    "StatePatternExample",
+                    new InjectionConstructor(
+                        new ResolvedParameter<IGun>("M16"),
+                        new ResolvedParameter<IAmmunitionContainer>("M16StandardAmmunitionBox")));
         }
     }
 }

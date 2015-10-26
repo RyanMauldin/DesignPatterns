@@ -10,22 +10,12 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
         Weapon, IGun
     {
         protected Gun(
-            IWeaponConditionState perfectWeaponCondition,
-            IWeaponConditionState usedWeaponCondition,
-            IWeaponConditionState wornWeaponCondition,
-            IWeaponConditionState damagedWeaponCondition,
-            IWeaponConditionState destroyedWeaponCondition,
-            IWeaponConditionState weaponCondition,
+            IWeaponCondition weaponCondition,
             ICommand meleeCommand,
             ICommand shootCommand,
             ICommand emptyGunFireCommand,
             IAmmunitionContainer ammunitionContainer) :
                 base(
-                    perfectWeaponCondition,
-                    usedWeaponCondition,
-                    wornWeaponCondition,
-                    damagedWeaponCondition,
-                    destroyedWeaponCondition,
                     weaponCondition,
                     meleeCommand)
         {

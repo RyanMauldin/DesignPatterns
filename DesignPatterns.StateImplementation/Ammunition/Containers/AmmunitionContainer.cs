@@ -7,9 +7,11 @@ namespace DesignPatterns.StateImplementation.Ammunition.Containers
         IAmmunitionContainer
     {
         protected AmmunitionContainer(
+            IAmmunition ammunition,
             int ammunitionCount,
             int maxiumAmmunitionCount)
         {
+            Ammunition = ammunition;
             AmmunitionCount = ammunitionCount;
             MaxiumAmmunitionCount = maxiumAmmunitionCount;
         }
@@ -20,8 +22,8 @@ namespace DesignPatterns.StateImplementation.Ammunition.Containers
         public abstract decimal Weight { get; }
 
         // IAmmunitionContainer
+        public IAmmunition Ammunition { get; set; }
         public int AmmunitionCount { get; set; }
         public int MaxiumAmmunitionCount { get; set; }
-        public IAmmunition Ammunition { get; set; }
     }
 }

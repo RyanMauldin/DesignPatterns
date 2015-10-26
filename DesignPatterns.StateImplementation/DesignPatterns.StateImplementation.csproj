@@ -51,6 +51,8 @@
     <Compile Include="Item.cs" />
     <Compile Include="WeaponConditions\DamagedWeaponConditionState.cs" />
     <Compile Include="WeaponConditions\DestroyedWeaponConditionState.cs" />
+    <Compile Include="WeaponConditions\Interfaces\IWeaponCondition.cs" />
+    <Compile Include="WeaponConditions\WeaponCondition.cs" />
     <Compile Include="Weapons\Guns\Interfaces\IBurstFireGun.cs" />
     <Compile Include="Weapons\Guns\Gun.cs" />
     <Compile Include="Weapons\Guns\Interfaces\IGun.cs" />

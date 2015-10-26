@@ -1,12 +1,11 @@
-﻿using DesignPatterns.StateImplementation.Interfaces;
-using DesignPatterns.StateImplementation.Weapons.Interfaces;
+﻿using DesignPatterns.Interfaces;
+using DesignPatterns.StateImplementation.Interfaces;
 
 namespace DesignPatterns.StateImplementation.WeaponConditions.Interfaces
 {
     public interface IWeaponConditionState :
-        IItem
+        IState, IItem
     {
-        IWeapon Weapon { get; }
         bool CanBePickedUp { get; }
         bool CanBeUsed { get; }
         decimal AccuracyMulitplier { get; }

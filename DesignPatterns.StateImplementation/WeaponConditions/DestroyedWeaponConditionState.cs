@@ -1,24 +1,19 @@
-﻿using DesignPatterns.StateImplementation.Weapons.Interfaces;
-
-namespace DesignPatterns.StateImplementation.WeaponConditions
+﻿namespace DesignPatterns.StateImplementation.WeaponConditions
 {
     public class DestroyedWeaponConditionState :
         WeaponConditionState
     {
-        private readonly IWeapon _weapon;
         private int _weaponUses;
 
-        public DestroyedWeaponConditionState(
-            IWeapon weapon,
-            int weaponUses)
+        public DestroyedWeaponConditionState()
         {
-            _weapon = weapon;
-            _weaponUses = weaponUses;
+            
         }
 
-        public override IWeapon Weapon
+        public DestroyedWeaponConditionState(
+            int weaponUses)
         {
-            get { return _weapon; }
+            _weaponUses = weaponUses;
         }
 
         public override string Name

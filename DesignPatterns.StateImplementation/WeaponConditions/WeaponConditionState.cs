@@ -1,12 +1,10 @@
 ﻿using DesignPatterns.StateImplementation.WeaponConditions.Interfaces;
-using DesignPatterns.StateImplementation.Weapons.Interfaces;
 
 namespace DesignPatterns.StateImplementation.WeaponConditions
 {
     public abstract class WeaponConditionState :
-        IWeaponConditionState
+        State, IWeaponConditionState
     {
-        public abstract IWeapon Weapon { get; }
         public abstract string Name { get; }
         public abstract string Description { get; }
         public abstract decimal Weight { get; }
@@ -17,5 +15,7 @@ namespace DesignPatterns.StateImplementation.WeaponConditions
         public abstract int WeaponUses { get; }
         public abstract void WeaponUsed();
         public abstract void Reset();
+
+        
     }
 }

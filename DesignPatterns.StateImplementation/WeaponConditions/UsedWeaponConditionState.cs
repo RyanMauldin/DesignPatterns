@@ -1,24 +1,21 @@
-﻿using DesignPatterns.StateImplementation.Weapons.Interfaces;
+﻿using DesignPatterns.StateImplementation.WeaponConditions.Interfaces;
 
 namespace DesignPatterns.StateImplementation.WeaponConditions
 {
     public class UsedWeaponConditionState :
         WeaponConditionState
     {
-        private readonly IWeapon _weapon;
         private int _weaponUses;
 
-        public UsedWeaponConditionState(
-            IWeapon weapon,
-            int weaponUses)
+        public UsedWeaponConditionState()
         {
-            _weapon = weapon;
-            _weaponUses = weaponUses;
+            
         }
 
-        public override IWeapon Weapon
+        public UsedWeaponConditionState(
+            int weaponUses)
         {
-            get { return _weapon; }
+            _weaponUses = weaponUses;
         }
 
         public override string Name
@@ -68,8 +65,9 @@ namespace DesignPatterns.StateImplementation.WeaponConditions
                 return;
 
             Reset();
-            Weapon.WeaponCondition = Weapon.WornWeaponCondition;
-            Weapon.WeaponCondition.Reset();
+            var nextState = ((IWeaponCondition)StateContext).WornWeaponCondition;
+            nextState.Reset();
+            StateContext.CurrentState = nextState;
         }
 
         public override void Reset()

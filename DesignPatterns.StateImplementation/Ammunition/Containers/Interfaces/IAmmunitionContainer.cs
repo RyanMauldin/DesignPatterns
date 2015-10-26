@@ -6,8 +6,8 @@ namespace DesignPatterns.StateImplementation.Ammunition.Containers.Interfaces
     public interface IAmmunitionContainer :
         IItem
     {
+        IAmmunition Ammunition { get; set; }
         int AmmunitionCount { get; set; }
         int MaxiumAmmunitionCount { get; set; }
-        IAmmunition Ammunition { get; set; }
     }
 }

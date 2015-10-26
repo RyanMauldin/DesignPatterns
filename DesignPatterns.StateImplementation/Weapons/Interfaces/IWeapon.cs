@@ -8,13 +8,7 @@ namespace DesignPatterns.StateImplementation.Weapons.Interfaces
     public interface IWeapon :
         IItem
     {
-        IWeaponConditionState PerfectWeaponCondition { get; set; }
-        IWeaponConditionState UsedWeaponCondition { get; set; }
-        IWeaponConditionState WornWeaponCondition { get; set; }
-        IWeaponConditionState DamagedWeaponCondition { get; set; }
-        IWeaponConditionState DestroyedWeaponCondition { get; set; }
-
-        IWeaponConditionState WeaponCondition { get; set; }
+        IWeaponCondition WeaponCondition { get; set; }
 
         ICommand MeleeCommand { get; set; }
 

@@ -9,19 +9,10 @@ namespace DesignPatterns.StateImplementation.Weapons
         IWeapon
     {
         protected Weapon(
-            IWeaponConditionState perfectWeaponCondition,
-            IWeaponConditionState usedWeaponCondition,
-            IWeaponConditionState wornWeaponCondition,
-            IWeaponConditionState damagedWeaponCondition,
-            IWeaponConditionState destroyedWeaponCondition,
-            IWeaponConditionState weaponCondition,
+            IWeaponCondition weaponCondition,
             ICommand meleeCommand)
         {
-            PerfectWeaponCondition = perfectWeaponCondition;
-            UsedWeaponCondition = usedWeaponCondition;
-            WornWeaponCondition = wornWeaponCondition;
-            DamagedWeaponCondition = damagedWeaponCondition;
-            DestroyedWeaponCondition = destroyedWeaponCondition;
+            
             WeaponCondition = weaponCondition;
             MeleeCommand = meleeCommand;
             LastMelee = DateTime.MinValue;
@@ -33,13 +24,7 @@ namespace DesignPatterns.StateImplementation.Weapons
         public abstract decimal Weight { get; }
 
         // IWeapon
-        public IWeaponConditionState PerfectWeaponCondition { get; set; }
-        public IWeaponConditionState UsedWeaponCondition { get; set; }
-        public IWeaponConditionState WornWeaponCondition { get; set; }
-        public IWeaponConditionState DamagedWeaponCondition { get; set; }
-        public IWeaponConditionState DestroyedWeaponCondition { get; set; }
-
-        public IWeaponConditionState WeaponCondition { get; set; }
+        public IWeaponCondition WeaponCondition { get; set; }
 
         public ICommand MeleeCommand { get; set; }
 
