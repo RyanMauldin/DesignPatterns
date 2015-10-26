@@ -52,7 +52,8 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
         {
             lock (this)
             {
-                if (LastShot.AddSeconds((double)ShotRate) >= DateTime.UtcNow)
+                if (!CurrentWeaponConditionState.CanBeUsed
+                    || LastShot.AddSeconds((double)ShotRate) >= DateTime.UtcNow)
                     return;
 
                 LastShot = DateTime.UtcNow;
@@ -102,13 +103,13 @@ namespace DesignPatterns.StateImplementation.Weapons.Guns
         {
             lock (this)
             {
-                if (LastMelee.AddSeconds((double)MeleeRate) >= DateTime.UtcNow)
+                if (!CurrentWeaponConditionState.CanBeUsed
+                    || LastMelee.AddSeconds((double)MeleeRate) >= DateTime.UtcNow)
                     return;
 
                 LastMelee = DateTime.UtcNow;
                 MeleeCommand.Execute();
-                var weaponConditionState = ((IWeaponConditionState)WeaponCondition.CurrentState);
-                weaponConditionState.WeaponUsed();
+                CurrentWeaponConditionState.WeaponUsed();
             }
         }
 
