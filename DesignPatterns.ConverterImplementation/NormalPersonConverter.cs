@@ -1,27 +1,27 @@
 ﻿using DesignPatterns.Models;
 using DesignPatterns.Models.Interfaces;
 
-namespace DesignPatterns.AdapterImplementation
+namespace DesignPatterns.ConverterImplementation
 {
     /// <summary>
-    /// Adapts an IPerson interface into an ICustomer interface
-    /// by creating a new Customer object.
+    /// Convert an ICustomer interface into an IPerson interface
+    /// by creating a new NormalPerson object.
     /// </summary>
-    public class CustomerAdapter :
-        Adapter<IPerson, ICustomer>
+    public class NormalPersonConverter :
+        Converter<ICustomer, IPerson>
     {
         /// <summary>
-        /// Adapts an IPerson interface into an ICustomer interface
-        /// by creating a new Customer object.
+        /// Converts an ICustomer interface into an IPerson interface
+        /// by creating a new NormalPerson object.
         /// </summary>
-        /// <param name="value">The input IPerson object to adapt.</param>
-        /// <returns>An ICustomer interface created as Customer, or null if passed a null object.</returns>
-        public override ICustomer Adapt(IPerson value)
+        /// <param name="value">The input ICustomer object to convert.</param>
+        /// <returns>An IPerson interface created as NormalPerson, or null if passed a null object.</returns>
+        public override IPerson Convert(ICustomer value)
         {
             if (value == null)
                 return null;
 
-            return new Customer
+            return new NormalPerson
             {
                 Id = value.Id,
                 FirstName = value.FirstName,

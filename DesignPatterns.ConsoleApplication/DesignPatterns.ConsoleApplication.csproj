@@ -60,18 +60,18 @@
   <ItemGroup>
     <Compile Include="DesignPatternExample.cs" />
     <Compile Include="DesignPatternExamples\CommandPatternExample.cs" />
-    <Compile Include="DesignPatternExamples\CustomerAdapterExample.cs" />
-    <Compile Include="DesignPatternExamples\CustomerEnumerableAdapterExample.cs" />
+    <Compile Include="DesignPatternExamples\CustomerConverterExample.cs" />
+    <Compile Include="DesignPatternExamples\CustomerEnumerableConverterExample.cs" />
     <Compile Include="DesignPatternExamples\FastPersonFactoryMethodExample.cs" />
     <Compile Include="DesignPatternExamples\FastPersonFactoryMethodWithParameterExample.cs" />
     <Compile Include="DesignPatternExamples\NormalPersonFactoryMethodExample.cs" />
     <Compile Include="DesignPatternExamples\NormalPersonFactoryMethodWithParameterExample.cs" />
     <Compile Include="DesignPatternExamples\PersonBehaviorExample.cs" />
-    <Compile Include="DesignPatternExamples\PersonEnumerableAdapterExample.cs" />
+    <Compile Include="DesignPatternExamples\PersonEnumerableConverterExample.cs" />
     <Compile Include="DesignPatternExamples\StatePatternExample.cs" />
     <Compile Include="Interfaces\IDesignPatternExample.cs" />
     <Compile Include="Data\MockData.cs" />
-    <Compile Include="DesignPatternExamples\PersonAdapterExample.cs" />
+    <Compile Include="DesignPatternExamples\PersonConverterExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
@@ -92,6 +92,10 @@
     <ProjectReference Include="..\DesignPatterns.CommandImplementation\DesignPatterns.CommandImplementation.csproj">
       <Project>{72862878-5241-4C71-9D84-6B17C3BDC3ED}</Project>
       <Name>DesignPatterns.CommandImplementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns.ConverterImplementation\DesignPatterns.ConverterImplementation.csproj">
+      <Project>{78F6DC4B-5EE4-4B03-915F-CBC84DA8DD20}</Project>
+      <Name>DesignPatterns.ConverterImplementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\DesignPatterns.FactoryMethodImplementation\DesignPatterns.FactoryMethodImplementation.csproj">
       <Project>{B1A81042-AE45-4262-B341-FEC03EF70184}</Project>

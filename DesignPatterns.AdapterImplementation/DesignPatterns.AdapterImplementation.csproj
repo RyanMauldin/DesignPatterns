@@ -39,12 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerAdapter.cs" />
-    <Compile Include="CustomerEnumerableAdapter.cs" />
-    <Compile Include="FastPersonAdapter.cs" />
-    <Compile Include="FastPersonEnumerableAdapter.cs" />
-    <Compile Include="NormalPersonAdapter.cs" />
-    <Compile Include="NormalPersonEnumerableAdapter.cs" />
+    <Compile Include="Oops.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

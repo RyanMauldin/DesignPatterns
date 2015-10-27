@@ -8,17 +8,17 @@ using Newtonsoft.Json;
 namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
 {
     /// <summary>
-    /// The Customer Adapter Example.
+    /// The Person Converter Example.
     /// </summary>
-    public class CustomerAdapterExample :
+    public class PersonConverterExample :
         DesignPatternExample
     {
-        private readonly IAdapter<IPerson, ICustomer> _adapter;
+        private readonly IConverter<ICustomer, IPerson> _converter;
 
-        public CustomerAdapterExample(
-            IAdapter<IPerson, ICustomer> adapter)
+        public PersonConverterExample(
+            IConverter<ICustomer, IPerson> converter)
         {
-            _adapter = adapter;
+            _converter = converter;
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
             {
                 builder.AppendLine(
                     JsonConvert.SerializeObject(
-                        MockData.Customers.Select(p => _adapter.Adapt(p)),
+                        MockData.Customers.Select(p => _converter.Convert(p)),
                         Formatting.Indented));
             }
         }

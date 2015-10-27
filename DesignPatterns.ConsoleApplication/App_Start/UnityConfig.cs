@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
-using DesignPatterns.AdapterImplementation;
 using DesignPatterns.BehaviorImplementation;
 using DesignPatterns.CommandImplementation;
 using DesignPatterns.CommandImplementation.Interfaces;
 using DesignPatterns.ConsoleApplication.Data;
 using DesignPatterns.ConsoleApplication.DesignPatternExamples;
 using DesignPatterns.ConsoleApplication.Interfaces;
+using DesignPatterns.ConverterImplementation;
 using DesignPatterns.FactoryMethodImplementation;
 using DesignPatterns.Interfaces;
 using DesignPatterns.Models;
@@ -60,25 +60,25 @@ namespace DesignPatterns.ConsoleApplication
             var builder = new StringBuilder(8192);
             container.RegisterInstance("ExampleConsoleOutput", builder);
 
-            // Person Adapter Examples
-            container.RegisterType<IAdapter<ICustomer, IPerson>, NormalPersonAdapter>();
+            // Person Converter Examples
+            container.RegisterType<IConverter<ICustomer, IPerson>, NormalPersonConverter>();
             container.RegisterType<
-                IAdapter<IEnumerable<ICustomer>, IEnumerable<IPerson>>,
-                NormalPersonEnumerableAdapter>();
+                IConverter<IEnumerable<ICustomer>, IEnumerable<IPerson>>,
+                NormalPersonEnumerableConverter>();
             container.RegisterType<IDesignPatternExample,
-                PersonAdapterExample>("PersonAdapterExample");
+                PersonConverterExample>("PersonConverterExample");
             container.RegisterType<IDesignPatternExample,
-                PersonEnumerableAdapterExample>("PersonEnumerableAdapterExample");
+                PersonEnumerableConverterExample>("PersonEnumerableConverterExample");
 
-            // Customer Adapter Examples
-            container.RegisterType<IAdapter<IPerson, ICustomer>, CustomerAdapter>();
+            // Customer Converter Examples
+            container.RegisterType<IConverter<IPerson, ICustomer>, CustomerConverter>();
             container.RegisterType<
-                IAdapter<IEnumerable<IPerson>, IEnumerable<ICustomer>>,
-                CustomerEnumerableAdapter>();
+                IConverter<IEnumerable<IPerson>, IEnumerable<ICustomer>>,
+                CustomerEnumerableConverter>();
             container.RegisterType<IDesignPatternExample,
-                CustomerAdapterExample>("CustomerAdapterExample");
+                CustomerConverterExample>("CustomerConverterExample");
             container.RegisterType<IDesignPatternExample,
-                CustomerEnumerableAdapterExample>("CustomerEnumerableAdapterExample");
+                CustomerEnumerableConverterExample>("CustomerEnumerableConverterExample");
             
             // Behavior Example Setup
             container.RegisterType<IBehavior<IPerson>,
@@ -114,8 +114,8 @@ namespace DesignPatterns.ConsoleApplication
             var displayDriveBehavior = container.Resolve<PersonDisplayDriveBehavior>("PersonDisplayDriveBehavior");
 
             // Normal Person Behavior Example
-            var normalPersonAdapter = new NormalPersonAdapter();
-            var normalPerson = normalPersonAdapter.Adapt(MockData.Customers[0]);
+            var normalPersonConverter = new NormalPersonConverter();
+            var normalPerson = normalPersonConverter.Convert(MockData.Customers[0]);
             normalPerson.DisplayIdleBehavior = displayIdleBehavior;
             normalPerson.DisplayStillBehavior = displayStillBehavior;
             normalPerson.DisplayWalkBehavior = displayWalkBehavior;
@@ -127,8 +127,8 @@ namespace DesignPatterns.ConsoleApplication
                     new InjectionConstructor(normalPerson));
 
             // Fast Person Behavior Example
-            var fastPersonAdapter = new FastPersonAdapter();
-            var fastPerson = fastPersonAdapter.Adapt(MockData.Customers[1]);
+            var fastPersonConverter = new FastPersonConverter();
+            var fastPerson = fastPersonConverter.Convert(MockData.Customers[1]);
             fastPerson.DisplayIdleBehavior = displayIdleBehavior;
             fastPerson.DisplayStillBehavior = displayStillBehavior;
             fastPerson.DisplayWalkBehavior = displayWalkBehavior;

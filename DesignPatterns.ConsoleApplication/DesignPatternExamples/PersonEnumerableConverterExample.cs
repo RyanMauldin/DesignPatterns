@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 using DesignPatterns.ConsoleApplication.Data;
 using DesignPatterns.Interfaces;
@@ -8,17 +8,17 @@ using Newtonsoft.Json;
 namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
 {
     /// <summary>
-    /// The Person Adapter Example.
+    /// The Person Enumerable Converter Example.
     /// </summary>
-    public class PersonAdapterExample :
+    public class PersonEnumerableConverterExample :
         DesignPatternExample
     {
-        private readonly IAdapter<ICustomer, IPerson> _adapter;
+        private readonly IConverter<IEnumerable<ICustomer>, IEnumerable<IPerson>> _converter;
 
-        public PersonAdapterExample(
-            IAdapter<ICustomer, IPerson> adapter)
+        public PersonEnumerableConverterExample(
+            IConverter<IEnumerable<ICustomer>, IEnumerable<IPerson>> converter)
         {
-            _adapter = adapter;
+            _converter = converter;
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
             {
                 builder.AppendLine(
                     JsonConvert.SerializeObject(
-                        MockData.Customers.Select(p => _adapter.Adapt(p)),
+                        _converter.Convert(MockData.Customers),
                         Formatting.Indented));
             }
         }

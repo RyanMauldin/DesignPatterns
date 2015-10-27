@@ -14,7 +14,7 @@ namespace DesignPatterns.ConsoleApplication
 
             // Comment out methods as needed as not all of them will show in default console.
             // One could also turn the StringBuilder output into a file.
-            AdapterExamples(container, builder);
+            ConverterExamples(container, builder);
             Console.Write(builder.ToString());
             builder.Clear();
             BehaviorExamples(container, builder);
@@ -36,29 +36,29 @@ namespace DesignPatterns.ConsoleApplication
             Console.ReadKey(true);
         }
 
-        private static void AdapterExamples(IUnityContainer container, StringBuilder builder)
+        private static void ConverterExamples(IUnityContainer container, StringBuilder builder)
         {
-            // Person Adapter Example
-            var personAdapterExample = container.Resolve<IDesignPatternExample>("PersonAdapterExample");
-            personAdapterExample.Run(builder);
+            // Person Converter Example
+            var personConverterExample = container.Resolve<IDesignPatternExample>("PersonConverterExample");
+            personConverterExample.Run(builder);
 
             builder.AppendLine();
 
-            // Person Enumerable Adapter Example
-            var personEnumerableAdapterExample = container.Resolve<IDesignPatternExample>("PersonEnumerableAdapterExample");
-            personEnumerableAdapterExample.Run(builder);
+            // Person Enumerable Converter Example
+            var personEnumerableConverterExample = container.Resolve<IDesignPatternExample>("PersonEnumerableConverterExample");
+            personEnumerableConverterExample.Run(builder);
 
             builder.AppendLine();
 
-            // Customer Adapter Example
-            var customerAdapterExample = container.Resolve<IDesignPatternExample>("CustomerAdapterExample");
-            customerAdapterExample.Run(builder);
+            // Customer Converter Example
+            var customerConverterExample = container.Resolve<IDesignPatternExample>("CustomerConverterExample");
+            customerConverterExample.Run(builder);
 
             builder.AppendLine();
 
-            // Customer Enumerable Adapter Example
-            var customerEnumerableAdapterExample = container.Resolve<IDesignPatternExample>("CustomerEnumerableAdapterExample");
-            customerEnumerableAdapterExample.Run(builder);
+            // Customer Enumerable Converter Example
+            var customerEnumerableConverterExample = container.Resolve<IDesignPatternExample>("CustomerEnumerableConverterExample");
+            customerEnumerableConverterExample.Run(builder);
 
             builder.AppendLine();
         }
