@@ -2,6 +2,9 @@
 
 namespace DesignPatterns.CommandImplementation
 {
+    /// <summary>
+    /// Empty Gun Fire Command Example
+    /// </summary>
     public class EmptyGunFireCommand :
         Command
     {

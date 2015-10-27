@@ -3,6 +3,7 @@
 namespace DesignPatterns.CommandImplementation
 {
     /// <summary>
+    /// Melee Command Example
     /// http://halo.wikia.com/wiki/Melee
     /// </summary>
     public class MeleeCommand :
