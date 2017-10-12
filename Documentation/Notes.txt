@@ -1,0 +1,66 @@
+Kent Beck and Ward Cunningham presented patterns at OOPSLA in 1987
+	- Using Pattern Languages for Object-Oriented Programs
+	
+A pattern language guides a designer by providing workable solutions to all of the problems known to arise in the course of design.
+leads a designer to ask (and answer) the right questions at the right time
+
+OOPSLA / ACM research conference
+	- (Object-Oriented Programming, Systems, Languages & Applications)
+	- Association for Computing Machinery
+
+Kent Beck
+	Pioneered Design Patterns
+	Extreme Programming (XP)(rigerous software engineering principles)
+	Agile Manifesto
+	Pioneered Smalltalk / Wrote SUnit
+	Facebook
+	
+Ward Cunningham
+	Developed First Wiki
+	Agile Manifesto
+	Cunningham's Law: Ward is credited with the idea: "The best way to get the right answer on the Internet is not to ask a question, it's to post the wrong answer."
+	New Relic
+
+Criticisms
+- Unnecessary Duplication
+- Weak points in languages
+	- Patterns are workarounds for missing language features
+- Same as other abstractions
+
+Creational Patterns:
+	Abstract Factory: Group of related products or cars for instance (Luxury / Sedan / Truck), multiple products from single factory.
+	Builder: More like TemplateMethod than StringBuilder or Fluent syntax. Implementation of instructions are hidden from client. Build a sandwhich
+	Factory Method: Abstract object creation, putting new object in single location, or combine with internal for forcing users to use factory
+	Prototype: Expensive Constructor / Cloning can be more effecient
+	Singleton: Appication Startup (If you only want one instace)
+Structural Patterns:
+	Adapter: DbDataAdapter / OleDBDataAdapter / SqlDataAdapter
+	Bridge: Ever changing requirements / Complex TV Remote controller, changing interfaces
+	Composite: Use with Iterator for Diner Menu (Drink Menu vs Food Menu)
+	Decorator: Memory Stream / File Stream / Stream Reader / Text Reader
+	Facade: Two API's or a Single API where a simpler interface is needed.
+	Flyweight: Rendering Trees, there are sooo many
+	Proxy - Remote Invokation / RPC / Remote Vs. Virtuals
+Behavioral Patterns:
+	Chain of responsibility: List of Handlers / Spam Handler -> Fan Handler -> Complaint Handler -> Catch All Handler
+	Command: Command prompt / Undo / Redo / Logging
+	Interpreter: Grammer Rules / Macro
+	Iterator: foreach in .NET / Need to iterate through all items... Good with Composite.
+	Mediator: Encapsulates entire system / Home Automation
+	Memento: Saving game state, or need Undo (Has Key Object)
+	Observer: Subscribe to Event Engine (File System Monitor)
+	State: Weapon Deterioration
+	Strategy: XML Strategy vs Sql Strategy ... causes code to have different behavior based on context.
+	Template Method: Encapsulates steps of Algorithms with template method that triggers full run.
+	Visitor: Traverser ... Traverse a tree structure (recursion)
+	
+COMPUOUND  PATTERNS
+	MVC - Model View Controller
+		- Observer Pattern for the Model to keep views and controllers updated on latest state changes
+		- View and Controller use Strategy Pattern
+		- The controller is the behavior of the view, can be interchanged for different behaviors
+		- The view itself uses the Composite Pattern to represent components such as Buttons, Dropdowns, UI controls.
+
+Similar Patterns:
+Builder / TemplateMethod - Algorthims in specific order
+Command / State - Removing Switch Statements
