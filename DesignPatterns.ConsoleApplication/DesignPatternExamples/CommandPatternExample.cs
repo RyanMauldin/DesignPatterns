@@ -38,6 +38,9 @@ namespace DesignPatterns.ConsoleApplication.DesignPatternExamples
             base.Run(builder);
             lock (builder)
             {
+                // Here, this class is the Invoker. The Client, or the calling program, is
+                // responsible for creating concrete commands and setting them on the reciever.
+                // The reciever is the CommandManager.
                 _commandManager.Execute(_skipCommand);
                 _commandManager.Execute(_skipCommand);
                 _commandManager.Execute(_hitCommand);

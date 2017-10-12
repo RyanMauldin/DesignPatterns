@@ -11,7 +11,7 @@ namespace DesignPatterns
     /// State Context during program runtime. This is
     /// possible because States have access to the
     /// State Context and vice versa. This State
-    /// abstact class has a reference to the State Context,
+    /// abstract class has a reference to the State Context,
     /// so that at some point in the lifecycle of this
     /// State object, it can use the State Context to
     /// change out the State Context's Current State to

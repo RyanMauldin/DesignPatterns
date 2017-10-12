@@ -78,6 +78,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Diagrams\Command.cd" />
+    <None Include="Diagrams\FactoryMethod.cd" />
+    <None Include="Diagrams\State.cd" />
+    <None Include="Diagrams\StateItem.cd" />
+    <None Include="Diagrams\StateWeapon.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
